@@ -46,12 +46,14 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'spring'
   gem 'spring-commands-rspec'
+  gem 'better_errors'     # 開発中のエラー画面をリッチにする
+  gem 'binding_of_caller' # 開発中のエラー画面にさらに変数の値を表示する
 end
 
 group :development do
   gem 'annotate'
-  gem 'better_errors'
-  gem 'binding_of_caller'
+  # gem 'better_errors'
+  # gem 'binding_of_caller'
   gem 'capistrano'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
