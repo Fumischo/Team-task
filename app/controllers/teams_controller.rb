@@ -1,11 +1,7 @@
 class TeamsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_team, only: %i[show edit update destroy]
-<<<<<<< HEAD
   before_action :owner_authority, only: [:edit, :change_owner]
-=======
-  before_action :owner_authority, only: [:edit]
->>>>>>> cb31475be11af44ef05c834be13fbe04c5155d84
 
   def index
     @teams = Team.all
@@ -58,7 +54,6 @@ class TeamsController < ApplicationController
     @team = current_user.keep_team_id ? Team.find(current_user.keep_team_id) : current_user.teams.first
   end
 
-<<<<<<< HEAD
   def change_owner
     @team = Team.find_by(name: params[:team_id])
     @user = User.find_by(id: params[:id])
@@ -67,8 +62,6 @@ class TeamsController < ApplicationController
     ContactMailer.contact_mail(@user.email, @team).deliver
   end
 
-=======
->>>>>>> cb31475be11af44ef05c834be13fbe04c5155d84
 
   private
 
@@ -81,12 +74,8 @@ class TeamsController < ApplicationController
   end
 
   def owner_authority
-<<<<<<< HEAD
     @team = Team.find_by(name: params[:team_id])
     if @team.owner == current_user
-=======
-    if @team.owner_id == current_user.id
->>>>>>> cb31475be11af44ef05c834be13fbe04c5155d84
     else
       redirect_to @team, notice: "権限がありません。"
     end

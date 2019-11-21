@@ -1,10 +1,15 @@
-  class ContactMailer < ApplicationMailer
-    default from: 'from@example.com'
+class ContactMailer < ApplicationMailer
+    default from: 'nil.admirari1009@gmail.com'
 
     def contact_mail(email, team)
         @email = email
         @team = team
         mail to: @email, subject: "#{@team.name}のリーダー権を付与されました！"
     end
-end
-  
+
+    def agenda_delete_mail(email, title)
+      @email = email
+      @title = title
+      mail to: @email, subject: "#{title}が削除されました！"
+    end
+  end
